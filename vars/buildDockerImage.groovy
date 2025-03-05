@@ -1,5 +1,5 @@
 def call (String imageName, String dockerFilePath){
-    echo "building Docker image ${imageName} from ${dockerFilePath}"
-    docker.build (imageName, dockerFilePath)
+    echo "building Docker image ${imageName} from /var/lib/jenkins/workspace/sama-gp/${dockerFilePath}"
+    docker.build (imageName, "/var/lib/jenkins/workspace/sama-gp/"+dockerFilePath)
     docker.image(imageName).push()
 }
