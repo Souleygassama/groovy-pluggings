@@ -8,4 +8,5 @@ def call (String imageName, String dockerFilePath){
         
     sh "docker tag ${imageName}:latest ${fullImageName}"
     docker.image(fullImageName).push()
+        }
 }
