@@ -26,7 +26,7 @@ def call() {
         sh """
             ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 << 'EOF'
                 mkdir -p /home/vagrant/deploy/sama-gp
-                sudo chown -R vagrant:vagrant /home/vagrant/deploy/sama-gp
+                 chown -R vagrant:vagrant /home/vagrant/deploy/sama-gp
                 pkill -f 'samagp-api-ms.jar' || true
             EOF
 
