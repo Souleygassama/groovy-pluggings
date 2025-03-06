@@ -1,0 +1,9 @@
+def call() {
+    sh """
+        scp -o StrictHostKeyChecking=no target/your-app.jar user@192.168.10.11:/opt/deployment/
+        ssh user@192.168.10.11 << 'EOF'
+            pkill -f 'your-app.jar' || true  # Stop existing process if running
+            nohup java -jar /opt/deployment/your-app.jar > /opt/deployment/app.log 2>&1 &
+        EOF
+    """
+}
