@@ -36,6 +36,7 @@ def call() {
                 nohup java -jar /home/vagrant/deploy/sama-gp/samagp-api-ms.jar > /home/vagrant/deploy/sama-gp/app.log 2>&1 &
             "
         """
+       }
     /*sh """
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo mkdir -p /home/vagrant/deploy/samagp"
         scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/samagp/sama-gp-annonce.jar
