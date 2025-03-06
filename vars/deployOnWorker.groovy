@@ -18,8 +18,8 @@ def call() {
     
     sshagent(['vargrant-public-key']) {
     sh """
-        ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "mkdir -p /home/vagrant/deploy/sama-gp8"
-        scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp8/sama-gp-annonce.jar
+        ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "mkdir -p /home/vagrant/deploy/sama-gp"
+        scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp/sama-gp-annonce.jar
     """
 }
     /*
