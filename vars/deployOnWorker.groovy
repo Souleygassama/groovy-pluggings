@@ -15,13 +15,14 @@ def call() {
         EOF
     """*/
     
-    /*
+    
     sshagent(['vargrant-public-key']) {
     sh """
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "mkdir -p /home/vagrant/deploy/sama-gp8"
-        scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp8/
+        scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp8/sama-gp-annonce.jar
     """
-}*/
+}
+    /*
        sshagent(['vargrant-public-key']) {
         sh """
             ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 << 'EOF'
@@ -31,7 +32,7 @@ def call() {
             EOF
 
         """
-    }
+    }*/
     /*sh """
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo mkdir -p /home/vagrant/deploy/samagp"
         scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/samagp/sama-gp-annonce.jar
