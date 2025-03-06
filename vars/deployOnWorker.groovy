@@ -5,7 +5,7 @@ def call() {
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo mkdir -p /home/vagrant/deploy/samagp"
         
         # Copy the JAR file to the remote server
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" target/samagp-api-ms-0.0.1-SNAPSHOT.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp
+        scp -o StrictHostKeyChecking=no target/samagp-api-ms-0.0.1-SNAPSHOT.jar vagrant@192.168.56.11:/home/vagrant/deploy/samagp/
     '''
     /*
     sh """
