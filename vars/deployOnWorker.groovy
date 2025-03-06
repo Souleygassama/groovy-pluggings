@@ -4,7 +4,7 @@ sshagent(['vargrant-public-key']) {
     sh """
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "mkdir -p /home/vagrant/deploy/sama-gp"
         rsync -e "ssh -o StrictHostKeyChecking=no" target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp/sama-gp-annonce.jar
-        ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo pkill -f sama-gp-annonce || true"
+        ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo pkill -f 'java' || true"
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "nohup java -jar /home/vagrant/deploy/sama-gp/sama-gp-annonce.jar > /home/vagrant/deploy/sama-gp/app.log 2>&1 &"
     """
 }     
