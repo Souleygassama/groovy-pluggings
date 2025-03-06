@@ -5,7 +5,7 @@ def call (String imageName, String dockerFilePath){
     def dockerUser = "souleygassama"
     def fullImageName = "${dockerUser}/${imageName}:latest"
         
-    //sh "docker tag ${imageName}:latest ${fullImageName}"
-    docker.image(imageName).push()
+    sh "docker tag ${imageName}:latest ${fullImageName}"
+    docker.image(fullImageName).push()
         }
 }
