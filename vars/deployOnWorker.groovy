@@ -30,11 +30,6 @@ def call() {
                 pkill -f 'samagp-api-ms.jar' || true
             EOF
 
-            scp -o StrictHostKeyChecking=no target/samagp-api-ms-0.0.1-SNAPSHOT.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp/samagp-api-ms.jar
-
-            ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 << 'EOF'
-                nohup java -jar /home/vagrant/deploy/sama-gp/samagp-api-ms.jar > /home/vagrant/deploy/sama-gp/app.log 2>&1 &
-            EOF
         """
     }
     /*sh """
