@@ -24,19 +24,19 @@ def call() {
 }*/
        sshagent(['vargrant-public-key']) {
         sh """
-            ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "
-                mkdir -p /home/vagrant/deploy/sama-gp &&
-                sudo chown -R vagrant:vagrant /home/vagrant/deploy/sama-gp &&
+            ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 << 'EOF'
+                mkdir -p /home/vagrant/deploy/sama-gp
+                sudo chown -R vagrant:vagrant /home/vagrant/deploy/sama-gp
                 pkill -f 'samagp-api-ms.jar' || true
-            "
+            EOF
 
             scp -o StrictHostKeyChecking=no target/samagp-api-ms-0.0.1-SNAPSHOT.jar vagrant@192.168.56.11:/home/vagrant/deploy/sama-gp/samagp-api-ms.jar
 
-            ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "
+            ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 << 'EOF'
                 nohup java -jar /home/vagrant/deploy/sama-gp/samagp-api-ms.jar > /home/vagrant/deploy/sama-gp/app.log 2>&1 &
-            "
+            EOF
         """
-       }
+    }
     /*sh """
         ssh -o StrictHostKeyChecking=no vagrant@192.168.56.11 "sudo mkdir -p /home/vagrant/deploy/samagp"
         scp -o StrictHostKeyChecking=no target/*.jar vagrant@192.168.56.11:/home/vagrant/deploy/samagp/sama-gp-annonce.jar
