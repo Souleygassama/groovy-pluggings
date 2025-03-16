@@ -4,7 +4,10 @@ import java.nio.file.Paths
 def call(String filePath = "../.env") {
     echo "RUNNING PROPS  ${filePath}"
     def envVars = [:]
-    
+
+     def currentDir = new File(".").absolutePath
+    echo "Current Working Directory: ${currentDir}"
+
     if (Files.exists(Paths.get(filePath))) {
             echo "RUNNING PROPS2  ${filePath}"
 
