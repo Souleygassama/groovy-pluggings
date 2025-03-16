@@ -2,15 +2,19 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 def call(String filePath = "../.env") {
-    echo "RUNNING PROPS"
+    echo "RUNNING PROPS  ${filePath}"
     def envVars = [:]
     
     if (Files.exists(Paths.get(filePath))) {
+            echo "RUNNING PROPS2  ${filePath}"
+
         def lines = Files.readAllLines(Paths.get(filePath))
         lines.each { line ->
             if (line.trim() && !line.startsWith("#")) { // Ignore comments and empty lines
                 def (key, value) = line.split("=", 2)
                 envVars[key.trim()] = value.trim()
+
+                echo key
             }
         }
     } else {
