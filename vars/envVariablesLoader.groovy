@@ -2,6 +2,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 def call(String filePath = "../.env") {
+    echo "RUNNING PROPS"
     def envVars = [:]
     
     if (Files.exists(Paths.get(filePath))) {
