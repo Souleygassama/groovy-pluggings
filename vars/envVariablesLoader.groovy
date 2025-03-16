@@ -1,7 +1,7 @@
 import java.nio.file.Files
 import java.nio.file.Paths
 
-def call(String filePath = "../.env") {
+def call(String filePath = "./.env") {
     echo "RUNNING PROPS  ${filePath}"
     def envVars = [:]
 
